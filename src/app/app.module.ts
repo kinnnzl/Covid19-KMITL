@@ -7,10 +7,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import { CountriesComponent } from './countries/countries.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
