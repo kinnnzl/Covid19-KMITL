@@ -1,19 +1,24 @@
 .dashboard-parent {
-    margin-top: 70px;
-    padding: 50px;
+    margin-top: 10%;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
 }
 
 .dashboard-child {
-    padding: 50px;
+    padding: 5%;
 }
 
 .card-header-parent {
-    font-size: 5vw;
+    font-size: 6vw;
     font-weight: 600;
 }
 
 #coronavirus-cases {
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: 500;
     font-family: fantasy;
 }
