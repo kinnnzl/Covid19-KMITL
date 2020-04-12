@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { createPopper } from '@popperjs/core';
-import { faHome, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'Covid19';
   faHome = faHome;
   faBars = faBars;
-  faTimes = faTimes;
+  faSearch = faSearch;
 
   constructor() {}
 

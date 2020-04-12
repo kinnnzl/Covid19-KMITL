@@ -1,8 +1,10 @@
-<div class="pos-f-t">
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h4 class="text-white">COVID-19 Times</h4>
-          <!-- Links -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-warning" routerLink="Home">Covid-19 Times</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="Home">Home <span class="sr-only">(current)</span></a>
@@ -11,28 +13,13 @@
         <a class="nav-link" routerLink="Countries">Countries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Information</a>
+        <a class="nav-link" href="#">About Covid19</a>
       </li>
     </ul>
-    <!-- Links -->
-
-
-    </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Countries" aria-label="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><fa-icon [icon]="faSearch"></fa-icon></button>
+    </form>
   </div>
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Search form -->
-  <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-  <i class="fas fa-search" aria-hidden="true"></i>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-    aria-label="Search">
-</form>
-
-  </nav>
-  
-</div>
+</nav>
 <router-outlet></router-outlet>

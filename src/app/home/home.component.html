@@ -9,26 +9,114 @@
   >
   <div class="container">
     <div class="row dashboard-parent">
-      <div class="card1 text-center">
-        <h1 class="th">รายงานสถานการณ์ Covid-19</h1>
-      </div>
-        <div class="card text-center">
-          <div class="card-header card-header-parent">
-            Coronavirus Cases
-          </div>
-          <div class="card-body">
-            <h5 class="card-title" id="coronavirus-cases">
-              {{ covid19.cases | number }}
-            </h5>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-          </div>
-          <div class="card-footer text-muted">
-            Last updated: {{updateDate}}
-         
+      <div class="col-lg-12">
+        <div class="card1 text-center">
+          <h1 class="th">รายงานสถานการณ์ Covid-19</h1>
         </div>
       </div>
     </div>
-    <div class="row dashboard-child">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="text-center date-header">
+              Updated: {{ myDate | date: "longDate" }}
+            </p>
+            <div class="card text-center">
+              <div class="card-header card-header-parent">
+                Coronavirus Cases
+              </div>
+              <div class="card-body">
+                <h5 class="card-title" id="coronavirus-cases">
+                  {{ covid19.cases | number }}
+                </h5>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4" style="padding-left: 5px; padding-right: 5px;">
+            <div
+              class="card text-white bg-warning mb-3 text-center"
+              style="max-width: 100%;"
+            >
+              <div class="card-header">ACTIVE CASES</div>
+              <div class="card-body">
+                <h5 class="card-title">{{ covid19.active | number }}</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" style="padding-left: 5px; padding-right: 5px;">
+            <div
+              class="card text-white bg-success mb-3 text-center"
+              style="max-width: 100%;"
+            >
+              <div class="card-header">Recovered</div>
+              <div class="card-body">
+                <h5 class="card-title">{{ covid19.recovered | number }}</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" style="padding-left: 5px; padding-right: 5px;">
+            <div
+              class="card text-white bg-danger mb-3 text-center"
+              style="max-width: 100%;"
+            >
+              <div class="card-header">Deaths</div>
+              <div class="card-body">
+                <h5 class="card-title">{{ covid19.deaths | number }}</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" style="margin-top: 26px;">
+        <div
+          class="list-group"
+          *ngFor="let country of countryTopfive; index as i"
+        >
+          <a class="list-group-item list-group-item-action scrollit">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">
+                <img
+                  [src]="country.countryInfo.flag"
+                  style="width: 25px; height: 15px;"
+                />
+                {{ country.country }}
+              </h5>
+              <small>Updated: {{ myDate | date: "longDate" }}</small>
+            </div>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item text-center">
+                <h6 class="toptree-textsize">Rank</h6>
+                {{ i + 1 }}
+              </li>
+              <li class="list-group-item text-center">
+                <h6 class="toptree-textsize">Active Cases</h6>
+                {{ country.cases | number }}
+              </li>
+              <li class="list-group-item text-center">
+                <h6 class="toptree-textsize">Recovered</h6>
+                {{ country.recovered | number }}
+              </li>
+              <li class="list-group-item text-center">
+                <h6 class="toptree-textsize">Deaths</h6>
+                {{ country.deaths | number }}
+              </li>
+              <li class="list-group-item text-center">
+                <h6 class="toptree-textsize">Today Cases</h6>
+                {{ country.todayCases | number }}
+              </li>
+            </ul>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row dashboard-child">
       <div class="col-lg-4">
         <div
           class="card text-white bg-success mb-3 text-center"
@@ -71,6 +159,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </router-outlet>
