@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CountriesService } from './service/countries.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-countries',
@@ -11,24 +14,44 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CountriesComponent implements OnInit {
   faSearch = faSearch;
   public countries: any[] = [];
+  public countriesMaster: any[] = [];
   public country: string = null;
+  public currentPage = 0;
+
+  displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active'];
+  dataSource: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
     private countriesService: CountriesService,
     private spinner: NgxSpinnerService
-  ) {}
+  ) {
+    this.spinner.show();
+    this.getAllCountries();
+  }
 
   ngOnInit(): void {
-    this.getAllCountries();
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   getAllCountries() {
     if (this.country === null || this.country === '') {
-      this.spinner.show();
       this.countriesService.getCovidAllCountries().subscribe((data: []) => {
-        this.countries = [];
-        this.countries = data;
-        console.log(this.countries);
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         this.spinner.hide();
       });
     }
@@ -41,7 +64,6 @@ export class CountriesComponent implements OnInit {
       .subscribe((data: []) => {
         this.countries = [];
         this.countries.push(data);
-        console.log(this.countries);
         this.spinner.hide();
       });
   }
