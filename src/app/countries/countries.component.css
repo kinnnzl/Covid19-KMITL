@@ -3,8 +3,7 @@
 }
 
 .scrollit {
-  overflow:scroll;
-  height:500px;
+  overflow:auto;
 }
 
 .card-header-parent {

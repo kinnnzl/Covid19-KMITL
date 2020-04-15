@@ -47,9 +47,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { ThailandComponent } from './thailand/thailand.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CountriesComponent],
+  declarations: [AppComponent, HomeComponent, CountriesComponent, ThailandComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -18,12 +18,13 @@
 }
 
 .card-header-parent {
-  font-size: 3vw;
+  font-size: 200%;
   font-weight: 500;
 }
 
 #coronavirus-cases {
-  font-size: 200%;
+  font-size: 300%;
+  padding: 12px;
   /*font-weight: 500;*/
   font-family: fantasy;
 }

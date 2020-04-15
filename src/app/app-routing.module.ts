@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
+import { ThailandComponent } from './thailand/thailand.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
-  { path: 'Countries', component: CountriesComponent }
+  { path: 'Countries', component: CountriesComponent },
+  { path: 'Thailand', component: ThailandComponent }
 ];
 
 @NgModule({

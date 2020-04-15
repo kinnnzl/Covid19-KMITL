@@ -51,6 +51,7 @@ export class CountriesComponent implements OnInit {
       this.countriesService.getCovidAllCountries().subscribe((data: []) => {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
+        console.log(data);
         this.dataSource.sort = this.sort;
         this.spinner.hide();
       });
