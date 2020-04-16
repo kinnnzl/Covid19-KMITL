@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './service/home.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { DatePipe } from '@angular/common';
 import { CountriesService } from '../countries/service/countries.service';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +14,20 @@ export class HomeComponent implements OnInit {
   public countryTopfive: any[] = [];
   public myDate = new Date();
   public updateDate = null;
+  public visitors: any[];
+  public count: number;
+  public status = 'initial';
+  faEye = faEye;
 
   constructor(
     private homeService: HomeService,
     private countriesService: CountriesService,
-    private spinner: NgxSpinnerService,
-    private datePipe: DatePipe
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
     this.spinner.show();
+    this.getVisitors();
     this.getCovidAll();
     this.getCountryAll();
   }
@@ -35,28 +39,42 @@ export class HomeComponent implements OnInit {
   }
 
   getCountryAll() {
-    const countries = this.countriesService
-      .getCovidAllCountries()
-      .subscribe((data) => {
-        data = data.sort((obj1, obj2) => {
-          if (obj1.cases > obj2.cases) {
-            return 1;
-          }
-          if (obj1.cases < obj2.cases) {
-            return -1;
-          }
-          return 0;
-        });
-        this.sortCountrys(data.reverse());
-        this.setTimeout();
+    this.countriesService.getCovidAllCountries().subscribe((data) => {
+      data = data.sort((obj1, obj2) => {
+        if (obj1.cases > obj2.cases) {
+          return 1;
+        }
+        if (obj1.cases < obj2.cases) {
+          return -1;
+        }
+        return 0;
       });
+      this.sortCountrys(data.reverse());
+      this.setTimeout();
+    });
   }
 
   sortCountrys(data: any) {
     for (let i = 0; i < 3; i++) {
       this.countryTopfive.push(data[i]);
     }
-    console.log(this.countryTopfive);
+  }
+
+  getVisitors() {
+    this.homeService.getVisitors().subscribe((items) => {
+      this.visitors = items;
+      this.count = this.visitors[0].value;
+      this.updateVisitors();
+    });
+  }
+
+  updateVisitors() {
+    this.homeService.updateVisitors(
+      this.visitors[0].key,
+      this.visitors[0].value,
+      this.status
+    );
+    this.status = 'SuccessSetVisitor';
   }
 
   setTimeout() {

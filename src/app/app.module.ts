@@ -48,6 +48,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { ThailandComponent } from './thailand/thailand.component';
+import { AngularFireModule} from 'angularfire2';
+import { firebaseConfig } from '../environments/firebase.config';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CountriesComponent, ThailandComponent],
@@ -98,6 +101,8 @@ import { ThailandComponent } from './thailand/thailand.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
