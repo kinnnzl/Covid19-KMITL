@@ -8,7 +8,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
   providedIn: 'root',
 })
 export class HomeService {
-  private endpoint = 'https://corona.lmao.ninja/all';
+  private endpoint = 'https://corona.lmao.ninja/v2/all';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

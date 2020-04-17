@@ -7,8 +7,8 @@ import { map, catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CountriesService {
-  private endpointAllCountries = 'https://corona.lmao.ninja/countries?sort=country';
-  private endpointByCountry = 'https://corona.lmao.ninja/countries/';
+  private endpointAllCountries = 'https://corona.lmao.ninja/v2/countries?sort=country';
+  private endpointByCountry = 'https://corona.lmao.ninja/v2/countries/';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

@@ -33,8 +33,6 @@ export class CountriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -51,7 +49,6 @@ export class CountriesComponent implements OnInit {
       this.countriesService.getCovidAllCountries().subscribe((data: []) => {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
-        console.log(data);
         this.dataSource.sort = this.sort;
         this.spinner.hide();
       });
