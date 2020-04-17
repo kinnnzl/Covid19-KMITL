@@ -1,1 +1,171 @@
-<p>about works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-8" style="margin-top: -7%; margin-bottom: -6%;">
+      <img
+        src="https://raw.githubusercontent.com/kinnnzl/Covid19-KMITL/master/src/app/core/image/covid.png"
+        style="width: inherit; height: initial;"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="box-part text-center">
+        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+
+        <div class="title">
+          <h4 class="title-bold">อาการเบื้องต้น</h4>
+        </div>
+
+        <div class="text">
+          <p>อาการเบื้องต้นเชื้อไวรัสโคโรนา</p>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-info"
+          (click)="scroll(symptom)"
+        >
+          อ่านเพิ่มเติม
+        </button>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="box-part text-center">
+        <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+
+        <div class="title">
+          <h4 class="title-bold">วิธีการป้องกัน</h4>
+        </div>
+
+        <div class="text">
+          <p>วิธีการการป้องกับเชื้อไวรัสโคโรนา</p>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-info"
+          (click)="scroll(protected)"
+        >
+          อ่านเพิ่มเติม
+        </button>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="box-part text-center">
+        <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+
+        <div class="title">
+          <h4 class="title-bold">ความผ่อนคลาย</h4>
+        </div>
+
+        <div class="text">
+          <p>วิธีการผ่อนคลายในช่วงกักตัว</p>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-info"
+          (click)="scroll(relex)"
+        >
+          อ่านเพิ่มเติม
+        </button>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <div class="box-part text-center">
+        <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+
+        <div class="title">
+          <h4 class="title-bold">แอพพลิเคชัน</h4>
+        </div>
+
+        <div class="text">
+          <p>แอพพลิเคชันเกี่ยวกับไวรัสโคโรนา</p>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-info"
+          (click)="scroll(application)"
+        >
+          อ่านเพิ่มเติม
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body" #symptom>
+          <h2 class="card-title">อาการ</h2>
+          <p class="card-text">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ติดเชื้ออาจป่วยเนื่องจากไวรัสนี้เป็นเวลา
+            1-14 วันก่อนที่จะแสดงอาการ อาการทั่วไปของโรคติดเชื้อไวรัสโคโรนา 2019
+            (โรคโควิด 19) คือเป็นไข้ อ่อนเพลีย และไอแห้ง คนส่วนใหญ่
+            (ประมาณร้อยละ 80) หายจากโรคนี้ได้โดยไม่ต้องรับการรักษาพิเศษ
+          </p>
+          <p class="card-text">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในกรณีส่วนน้อย
+            โรคอาจรุนแรงจนถึงขั้นทำให้เสียชีวิต ผู้สูงอายุและผู้ที่มีโรคประจำตัว
+            (เช่น หอบหืด เบาหวาน หรือโรคหัวใจ)
+            อาจมีความเสี่ยงมากขึ้นที่อาการป่วยจะรุนแรง
+          </p>
+          <hr>
+          <p>ผู้ที่ติดเชื้ออาจมีอาการดังนี้</p>
+          <div class="media">
+            <img src="..." class="align-self-start mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0">Top-aligned media</h5>
+              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+              <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 mt-3">
+      <div class="card">
+        <h2 class="card-header" #protected>วิธีการป้องกัน</h2>
+        <div class="card-body">
+          <h1 class="card-title">Special title treatment</h1>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 mt-3">
+      <div class="card">
+        <h2 class="card-header" #relex>ความผ่อนคลาย</h2>
+        <div class="card-body">
+          <h1 class="card-title">Special title treatment</h1>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 mt-3 mb-3">
+      <div class="card">
+        <h2 class="card-header" #application>
+          แอพพลิเคชันที่เกี่ยวกับไวรัสโคโรนา
+        </h2>
+        <div class="card-body">
+          <h1 class="card-title">Special title treatment</h1>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="back-to-top" *ngIf="isShow" (click)="gotoTop()">
+    <fa-icon [icon]="faArrowCircleUp" style="color: white;"></fa-icon>
+  </button>
+</div>

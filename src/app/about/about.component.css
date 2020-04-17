@@ -1,0 +1,45 @@
+body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:35px 10px;
+    margin:12px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: darkorange;
+    outline: none;
+  }
+
+  .title-bold {
+      font-weight: bold;
+      margin-bottom: -6%;
+  }
