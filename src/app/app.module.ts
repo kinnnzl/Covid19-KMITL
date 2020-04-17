@@ -51,9 +51,11 @@ import { ThailandComponent } from './thailand/thailand.component';
 import { AngularFireModule} from 'angularfire2';
 import { firebaseConfig } from '../environments/firebase.config';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AboutComponent } from './about/about.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CountriesComponent, ThailandComponent],
+  declarations: [AppComponent, HomeComponent, CountriesComponent, ThailandComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -102,7 +104,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     MatTooltipModule,
     MatTreeModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ChartsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
