@@ -26,7 +26,8 @@
   font-size: 300%;
   padding: 12px;
   /*font-weight: 500;*/
-  font-family: fantasy;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 .card1 {
   margin: 0 auto; /* Added */
