@@ -3,6 +3,7 @@ import { HomeService } from './service/home.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CountriesService } from '../countries/service/countries.service';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,21 @@ export class HomeComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private countriesService: CountriesService,
-    private spinner: NgxSpinnerService
-  ) {}
+    private spinner: NgxSpinnerService,
+    private meta: Meta,
+    private title: Title
+  ) {
+    meta.addTags([
+      {
+        name: 'description',
+        content: 'This is my Angular SEO-based App, enjoy it!',
+      },
+      {
+        name: 'image',
+        content: 'https://raw.githubusercontent.com/kinnnzl/Covid19-KMITL/master/src/app/core/image/%E0%B9%84%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%AA.png'
+      }
+    ]);
+  }
 
   ngOnInit(): void {
     this.spinner.show();
