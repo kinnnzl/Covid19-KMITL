@@ -80,7 +80,7 @@ export class ThailandComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.setChart(data);
-        this.setTimeout();
+        this.spinner.hide();
       });
   }
 
@@ -147,12 +147,5 @@ export class ThailandComponent implements OnInit {
       hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
       borderWidth: 2,
     });
-  }
-
-  setTimeout() {
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1000);
   }
 }

@@ -8,6 +8,14 @@
     ><p style="color: white;">Loading...</p></ngx-spinner
   >
   <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-8" style="margin-top: -7%; margin-bottom: -11%;">
+        <img
+          src="https://raw.githubusercontent.com/kinnnzl/Covid19-KMITL/master/src/app/core/image/covid.png"
+          style="width: inherit; height: initial;"
+        />
+      </div>
+    </div>
     <div class="row mb-5 country-parent">
       <div class="col-lg-8 mx-auto">
         <!-- Custom rounded search bars with input group -->
@@ -18,10 +26,11 @@
                 type="search"
                 placeholder="What're you searching for?"
                 aria-describedby="button-addon1"
-                class="form-control border-0 bg-light"
+                class="form-control border-0 bg-light pl-2 pt-1"
                 [(ngModel)]="country"
                 name="country"
-                matInput (keyup)="applyFilter($event)"
+                matInput
+                (keyup)="applyFilter($event)"
               />
               <div class="input-group-append">
                 <button
@@ -40,6 +49,13 @@
       </div>
       <div class="col-lg-12 mx-auto card scrollit">
         <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Rank Column -->
+          <ng-container matColumnDef="rank">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="1">Rank</th>
+            <td mat-cell *matCellDef="let row; let i = index" [attr.data-index]="i">
+              {{ i + 1 }}
+            </td>
+          </ng-container>
 
           <!-- Progress Column -->
           <ng-container matColumnDef="country">
@@ -54,24 +70,24 @@
             </td>
           </ng-container>
 
-          <!-- Name Column -->
+          <!-- Cases Column -->
           <ng-container matColumnDef="cases">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Cases</th>
-            <td mat-cell *matCellDef="let row">{{ row.cases }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.cases | number }}</td>
           </ng-container>
 
-          <!-- Color Column -->
+          <!-- Today Cases Column -->
           <ng-container matColumnDef="todayCases">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Today Cases
             </th>
-            <td mat-cell *matCellDef="let row">{{ row.todayCases }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.todayCases | number }}</td>
           </ng-container>
 
           <!-- Deaths Column -->
           <ng-container matColumnDef="deaths">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Deaths</th>
-            <td mat-cell *matCellDef="let row">{{ row.deaths }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.deaths | number }}</td>
           </ng-container>
 
           <!-- Today Deaths Column -->
@@ -79,26 +95,29 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Today Deaths
             </th>
-            <td mat-cell *matCellDef="let row">{{ row.todayDeaths }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.todayDeaths | number }}</td>
           </ng-container>
 
           <!-- Recovered Column -->
           <ng-container matColumnDef="recovered">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Recovered</th>
-            <td mat-cell *matCellDef="let row">{{ row.recovered }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.recovered | number }}</td>
           </ng-container>
 
           <!-- Active Column -->
           <ng-container matColumnDef="active">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Active</th>
-            <td mat-cell *matCellDef="let row">{{ row.active }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.active | number }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons></mat-paginator>
+        <mat-paginator
+          [pageSizeOptions]="[10, 25, 100]"
+          showFirstLastButtons
+        ></mat-paginator>
       </div>
     </div>
   </div>

@@ -18,7 +18,16 @@ export class CountriesComponent implements OnInit {
   public country: string = null;
   public currentPage = 0;
 
-  displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active'];
+  displayedColumns: string[] = [
+    'rank',
+    'country',
+    'cases',
+    'todayCases',
+    'deaths',
+    'todayDeaths',
+    'recovered',
+    'active',
+  ];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -32,8 +41,7 @@ export class CountriesComponent implements OnInit {
     this.getAllCountries();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -47,6 +55,7 @@ export class CountriesComponent implements OnInit {
   getAllCountries() {
     if (this.country === null || this.country === '') {
       this.countriesService.getCovidAllCountries().subscribe((data: []) => {
+        data = this.sortDescending(data);
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -64,5 +73,18 @@ export class CountriesComponent implements OnInit {
         this.countries.push(data);
         this.spinner.hide();
       });
+  }
+
+  sortDescending(data: any) {
+    data = data.sort((obj1, obj2) => {
+      if (obj1.cases > obj2.cases) {
+        return 1;
+      }
+      if (obj1.cases < obj2.cases) {
+        return -1;
+      }
+      return 0;
+    });
+    return data.reverse();
   }
 }

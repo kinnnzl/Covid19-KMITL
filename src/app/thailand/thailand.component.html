@@ -23,7 +23,7 @@
             <div class="card text-center">
               <div class="card-header card-header-parent">
                 <img
-                  src="https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/th.png"
+                  src="https://corona.lmao.ninja/assets/img/flags/th.png"
                   class="mr-1 mb-1"
                   style="width: 25px;"
                 />
@@ -37,7 +37,7 @@
                   (+{{ covid19.NewConfirmed }})
                 </p>
                 <p *ngIf="covid19.NewConfirmed < 0">
-                  (-{{ covid19.NewConfirmed }})
+                  ({{ covid19.NewConfirmed }})
                 </p>
               </div>
             </div>
@@ -48,8 +48,7 @@
             <div class="row justify-content-center">
               <div class="col-10 col-lg-4 no-gutters">
                 <div
-                  class="card text-white bg-warning mb-3 text-center"
-                  style="max-width: 100%;"
+                  class="card text-white bg-warning mb-3 text-center card-child"
                 >
                   <div class="card-header">ACTIVE CASES</div>
                   <div class="card-body p-2">
@@ -60,15 +59,14 @@
                       (+{{ covid19.NewHospitalized }})
                     </small>
                     <small *ngIf="covid19.NewHospitalized < 0">
-                      (-{{ covid19.NewHospitalized }})
+                      ( {{ covid19.NewHospitalized }})
                     </small>
                   </div>
                 </div>
               </div>
               <div class="col-10 col-lg-4 no-gutters">
                 <div
-                  class="card text-white bg-success mb-3 text-center"
-                  style="max-width: 100%;"
+                  class="card text-white bg-success mb-3 text-center card-child"
                 >
                   <div class="card-header">Recovered</div>
                   <div class="card-body p-2">
@@ -79,15 +77,14 @@
                       (+{{ covid19.NewRecovered }})
                     </small>
                     <small *ngIf="covid19.NewRecovered < 0">
-                      (-{{ covid19.NewRecovered }})
+                      ({{ covid19.NewRecovered }})
                     </small>
                   </div>
                 </div>
               </div>
               <div class="col-10 col-lg-4 no-gutters">
                 <div
-                  class="card text-white bg-danger mb-3 text-center"
-                  style="max-width: 100%;"
+                  class="card text-white bg-danger mb-3 text-center card-child"
                 >
                   <div class="card-header">Deaths</div>
                   <div class="card-body p-2">
@@ -98,7 +95,7 @@
                       (+{{ covid19.NewDeaths }})
                     </small>
                     <small *ngIf="covid19.NewDeaths < 0">
-                      (-{{ covid19.NewDeaths }})
+                      ({{ covid19.NewDeaths }})
                     </small>
                   </div>
                 </div>
@@ -123,7 +120,7 @@
           <!-- Name Column -->
           <ng-container matColumnDef="cases">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Cases</th>
-            <td mat-cell *matCellDef="let row">{{ row.cases }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.cases | number }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

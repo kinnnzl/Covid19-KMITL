@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
         return 0;
       });
       this.sortCountrys(data.reverse());
-      this.setTimeout();
+      this.spinner.hide();
     });
   }
 
@@ -75,12 +75,5 @@ export class HomeComponent implements OnInit {
       this.status
     );
     this.status = 'SuccessSetVisitor';
-  }
-
-  setTimeout() {
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1000);
   }
 }
