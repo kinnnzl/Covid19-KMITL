@@ -17,6 +17,7 @@ export class CountriesComponent implements OnInit {
   public countriesMaster: any[] = [];
   public country: string = null;
   public currentPage = 0;
+  public logo = 'assets/image/covidthai.png';
 
   displayedColumns: string[] = [
     'rank',
